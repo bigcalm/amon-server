@@ -6,7 +6,10 @@ set -e
 export FULL_HOSTNAME=`hostname -f`
 export EMAIL_TO='sysops@example.com'
 
-PUBLIC_OR_PRIVATE=${1:-public}
+PROVISIONING_PATH=${PROVISIONING_PATH:-./}
+PUBLIC_OR_PRIVATE=${PUBLIC_OR_PRIVATE:-${1:-public}}
+
+cd ${PROVISIONING_PATH}
 
 source mongodb.sh
 source dependencies.sh

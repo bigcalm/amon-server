@@ -19,5 +19,12 @@ Vagrant.configure("2") do |config|
       vb.customize ["modifyvm", :id, "--cableconnected1", "on"] # https://github.com/chef/bento/issues/688
     end
 
+    webserver.vm.provision "shell",
+      path: "provision.sh",
+      env: {
+        PROVISIONING_PATH: "/vagrant",
+        PUBLIC_OR_PRIVATE: "private"
+      }
+
   end
 end
